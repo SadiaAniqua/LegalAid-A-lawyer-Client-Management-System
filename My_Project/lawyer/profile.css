@@ -1,0 +1,872 @@
+/* =========================================================
+   LEGALAID LAWYER PROFILE
+   ========================================================= */
+
+
+/* ===== Design Tokens ===== */
+
+:root {
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --success: #1E9E63;
+    --success-soft: #E8F7EF;
+
+    --error: #D64545;
+    --error-soft: #FCEBEC;
+
+    --radius: 14px;
+}
+
+
+/* ===== Reset ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+}
+
+
+h1,
+h2,
+h3 {
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 84px;
+
+    flex-shrink: 0;
+
+    background-color: var(--sidebar);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+
+.sidebar-logo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 36px;
+}
+
+
+.sidebar-logo img {
+    width: 40px;
+
+    height: 40px;
+
+    display: block;
+}
+
+
+/* ===== Sidebar Navigation ===== */
+
+.sidebar-nav {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex-grow: 1;
+
+    width: 100%;
+}
+
+
+.sidebar-nav li a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-nav li a svg {
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+.sidebar-nav li.active a {
+    background-color: var(--accent);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+/* ===== Sidebar Bottom ===== */
+
+.sidebar-bottom a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-bottom a svg {
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-bottom a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main {
+    flex-grow: 1;
+
+    padding: 32px 40px 24px;
+
+    max-width: 1100px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    gap: 30px;
+}
+
+
+.page-heading {
+    min-width: 0;
+}
+
+
+.page-heading h1 {
+    font-size: 24px;
+
+    margin-top: 10px;
+
+    color: var(--text);
+}
+
+
+.subtitle {
+    margin: 6px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.back-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: color 0.15s ease;
+}
+
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+
+.back-link svg {
+    width: 16px;
+
+    height: 16px;
+}
+
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
+.account {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.account-info {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 3px;
+}
+
+
+.account-name {
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+.account-role {
+    font-size: 12px;
+
+    color: var(--muted);
+
+    background: var(--accent-soft);
+
+    padding: 3px 10px;
+
+    border-radius: 999px;
+}
+
+
+.avatar {
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family: 'Sora', sans-serif;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.message {
+    border-radius: 10px;
+
+    padding: 12px 16px;
+
+    margin-bottom: 18px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    border: 1px solid transparent;
+}
+
+
+.message.success {
+    background-color: var(--success-soft);
+
+    color: var(--success);
+
+    border-color: #CBEEDB;
+}
+
+
+.message.error {
+    background-color: var(--error-soft);
+
+    color: var(--error);
+
+    border-color: #F4CCCC;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+
+.profile-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 24px;
+
+    margin-bottom: 18px;
+}
+
+
+.card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+
+.card-header h2 {
+    font-size: 17px;
+}
+
+
+.card-header p {
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   PERSONAL INFORMATION
+   ========================================================= */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.info-item {
+    padding: 14px 16px;
+
+    background: #FAFBFE;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.info-label {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+.info-value {
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   VERIFICATION STATUS
+   ========================================================= */
+
+.status-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.status-tag.approved {
+    background: var(--success-soft);
+
+    color: var(--success);
+}
+
+
+.status-tag.rejected {
+    background: var(--error-soft);
+
+    color: var(--error);
+}
+
+
+.status-tag.pending {
+    background: #FFF5DC;
+
+    color: #A97900;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+
+.form-group label {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+/* ===== Inputs ===== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: #FFFFFF;
+
+    color: var(--text);
+
+    border-radius: 9px;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.form-group input,
+.form-group select {
+    height: 42px;
+
+    padding: 0 12px;
+}
+
+
+.form-group textarea {
+    padding: 12px;
+
+    resize: vertical;
+
+    min-height: 130px;
+
+    line-height: 1.5;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #A6ABC0;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+
+/* =========================================================
+   INPUT WITH TEXT
+   ========================================================= */
+
+.input-with-text {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.input-with-text input {
+    padding-right: 58px;
+}
+
+
+.input-with-text span {
+    position: absolute;
+
+    right: 12px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 24px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.button {
+    border: none;
+
+    border-radius: 9px;
+
+    min-height: 42px;
+
+    padding: 0 20px;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.button-primary {
+    background: var(--accent);
+
+    color: #FFFFFF;
+}
+
+
+.button-primary:hover {
+    background: #3049D6;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 18px rgba(59, 87, 242, 0.20);
+}
+
+
+.button-primary:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    margin-top: 40px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .main {
+        padding: 24px;
+    }
+
+
+    .topbar {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .account {
+        align-self: flex-start;
+    }
+
+
+    .account-info {
+        align-items: flex-start;
+
+        order: 2;
+    }
+
+
+    .avatar {
+        order: 1;
+    }
+
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .sidebar {
+        width: 68px;
+
+        padding-top: 20px;
+    }
+
+
+    .sidebar-logo img {
+        width: 36px;
+
+        height: 36px;
+    }
+
+
+    .sidebar-nav li a,
+    .sidebar-bottom a {
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .main {
+        padding: 20px 16px;
+    }
+
+
+    .page-heading h1 {
+        font-size: 21px;
+    }
+
+
+    .profile-card {
+        padding: 18px;
+    }
+
+
+    .card-header {
+        margin-bottom: 18px;
+    }
+
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+
+    .button {
+        width: 100%;
+    }
+
+}

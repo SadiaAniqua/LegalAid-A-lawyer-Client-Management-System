@@ -1,0 +1,764 @@
+
+/* =========================================
+   LEGALAID - RESCHEDULE APPOINTMENT
+   ========================================= */
+
+:root {
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --success: #1F9254;
+    --success-soft: #EAF7EF;
+
+    --error: #E4483F;
+    --error-soft: #FDEDEC;
+
+    --radius: 14px;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   APP LAYOUT
+   ========================================= */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.sidebar {
+    width: 84px;
+    min-height: 100vh;
+
+    background: var(--sidebar);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 22px 0;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.logo {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-size: 22px;
+
+    margin-bottom: 35px;
+}
+
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+.sidebar a {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--sidebar-icon);
+
+    font-size: 21px;
+
+    transition: 0.2s ease;
+}
+
+
+.sidebar a:hover {
+    color: var(--sidebar-icon-active);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+.sidebar a.active {
+    background: var(--accent);
+    color: var(--sidebar-icon-active);
+}
+
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+.main {
+    margin-left: 84px;
+
+    width: calc(100% - 84px);
+
+    min-height: 100vh;
+
+    padding: 32px 40px 24px;
+
+    max-width: 1100px;
+}
+
+
+/* =========================================
+   TOPBAR
+   ========================================= */
+
+.topbar {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 42px;
+}
+
+
+.brand {
+    font-family: "Sora", sans-serif;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+.subtitle {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+
+.account {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+}
+
+
+.account-name {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+.account-role {
+    margin-top: 2px;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   PAGE HEADING
+   ========================================= */
+
+.page-heading {
+    margin-bottom: 24px;
+}
+
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: var(--accent);
+}
+
+
+.page-heading h1 {
+    font-family: "Sora", sans-serif;
+
+    font-size: 28px;
+    line-height: 1.3;
+
+    margin-bottom: 7px;
+}
+
+
+.page-heading p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESCHEDULE CARD
+   ========================================= */
+
+.reschedule-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    max-width: 760px;
+}
+
+
+/* =========================================
+   CARD HEADER
+   ========================================= */
+
+.card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 24px;
+}
+
+
+.header-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 22px;
+}
+
+
+.card-header h2 {
+    font-family: "Sora", sans-serif;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+
+.card-header p {
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 14px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+}
+
+
+.message.success {
+    color: var(--success);
+    background: var(--success-soft);
+
+    border: 1px solid #D4EFDF;
+}
+
+
+.message.error {
+    color: var(--error);
+    background: var(--error-soft);
+
+    border: 1px solid #F6D2D0;
+}
+
+
+.message i {
+    font-size: 17px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.reschedule-form {
+    width: 100%;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.form-group label {
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+.input-wrapper {
+    position: relative;
+}
+
+
+.input-wrapper i {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    pointer-events: none;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 13px 0 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+.input-wrapper input:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+
+/* =========================================
+   FORM NOTE
+   ========================================= */
+
+.form-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    background: #F8F9FD;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 24px;
+}
+
+
+.form-note i {
+    color: var(--accent);
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.btn {
+    height: 40px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.btn i {
+    font-size: 16px;
+}
+
+
+.btn-primary {
+    border: 1px solid var(--accent);
+
+    background: var(--accent);
+
+    color: white;
+}
+
+
+.btn-primary:hover {
+    filter: brightness(0.94);
+}
+
+
+.btn-secondary {
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--text);
+}
+
+
+.btn-secondary:hover {
+    background: var(--bg);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+    max-width: 760px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 64px;
+    }
+
+
+    .main {
+        margin-left: 64px;
+
+        width: calc(100% - 64px);
+
+        padding: 25px 20px;
+    }
+
+
+    .topbar {
+        margin-bottom: 32px;
+    }
+
+
+    .account-info {
+        display: none;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .reschedule-card {
+        padding: 22px;
+    }
+
+
+    .form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+
+    .btn {
+        width: 100%;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        width: 58px;
+    }
+
+
+    .main {
+        margin-left: 58px;
+
+        width: calc(100% - 58px);
+
+        padding: 22px 14px;
+    }
+
+
+    .sidebar a {
+        width: 40px;
+        height: 40px;
+
+        font-size: 19px;
+    }
+
+
+    .logo {
+        width: 38px;
+        height: 38px;
+
+        font-size: 19px;
+    }
+
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+
+}
+
+/* =========================================
+   BACK LINK
+   ========================================= */
+
+.back-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 22px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+
+.back-link i {
+    font-size: 16px;
+}
+
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+

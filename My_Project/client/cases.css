@@ -1,0 +1,946 @@
+/* =========================================================
+   LegalAid — Client Cases
+   Shared client dashboard design
+   ========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root{
+
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --success: #16845B;
+    --success-soft: #E8F7F0;
+
+    --danger: #D94B5B;
+    --danger-soft: #FDECEE;
+
+    --warning: #B7791F;
+    --warning-soft: #FFF5DD;
+
+    --radius: 14px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    box-sizing: border-box;
+}
+
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    margin: 0;
+
+    font-family:
+        'Inter',
+        Arial,
+        sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+}
+
+
+h1,
+h2,
+h3{
+    font-family:
+        'Sora',
+        'Inter',
+        Arial,
+        sans-serif;
+
+    margin: 0;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+select,
+textarea{
+    font-family:
+        'Inter',
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app{
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar{
+    width: 84px;
+
+    flex-shrink: 0;
+
+    background-color: var(--sidebar);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO
+   ========================================================= */
+
+.sidebar-logo{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 36px;
+}
+
+
+.sidebar-logo img{
+    width: 40px;
+    height: 40px;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.sidebar-nav{
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex-grow: 1;
+
+    width: 100%;
+}
+
+
+.sidebar-nav li a{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-nav li a svg{
+
+    width: 20px;
+    height: 20px;
+}
+
+
+.sidebar-nav li a:hover{
+
+    background-color:
+        rgba(255,255,255,0.08);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+.sidebar-nav li.active a{
+
+    background-color:
+        var(--accent);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom a{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-bottom a svg{
+
+    width: 20px;
+    height: 20px;
+}
+
+
+.sidebar-bottom a:hover{
+
+    background-color:
+        rgba(255,255,255,0.08);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main{
+
+    flex-grow: 1;
+
+    padding:
+        32px
+        40px
+        24px;
+
+    max-width: 1250px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar{
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+
+.topbar h1{
+
+    font-size: 22px;
+
+    color: var(--text);
+}
+
+
+.subtitle{
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
+.account{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.account-name{
+
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+.account-role{
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    background:
+        var(--accent-soft);
+
+    padding:
+        3px
+        10px;
+
+    border-radius: 999px;
+}
+
+
+.avatar{
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent);
+
+    color: #FFFFFF;
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.page-heading{
+
+    margin:
+        18px
+        0
+        24px;
+}
+
+
+.page-heading h2{
+
+    font-size: 26px;
+
+    color: var(--text);
+}
+
+
+.page-heading p{
+
+    margin:
+        6px
+        0
+        0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESULTS CARD
+   ========================================================= */
+
+.results-card{
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.table-wrapper{
+
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+table{
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+thead{
+
+    background:
+        #FAFBFE;
+}
+
+
+th{
+
+    padding:
+        14px
+        16px;
+
+    text-align: left;
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.03em;
+
+    white-space: nowrap;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+td{
+
+    padding:
+        14px
+        16px;
+
+    font-size: 13px;
+
+    color: var(--text);
+
+    border-bottom:
+        1px solid var(--border);
+
+    vertical-align: middle;
+}
+
+
+tbody tr:last-child td{
+
+    border-bottom: none;
+}
+
+
+tbody tr{
+
+    transition:
+        background-color 0.15s ease;
+}
+
+
+tbody tr:hover{
+
+    background-color:
+        #FAFBFE;
+}
+
+
+/* =========================================================
+   PERSON CELL
+   ========================================================= */
+
+.person-cell{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PERSON AVATAR
+   ========================================================= */
+
+.person-avatar{
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CASE TYPE TAG
+   ========================================================= */
+
+.tag{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    border-radius: 999px;
+
+    padding:
+        5px
+        9px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.description-cell{
+
+    max-width: 300px;
+
+    color:
+        var(--muted);
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status-badge{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 80px;
+
+    padding:
+        5px
+        10px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: capitalize;
+
+    white-space: nowrap;
+}
+
+
+/* OPEN */
+
+.status-badge.open{
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+}
+
+
+/* IN PROGRESS */
+
+.status-badge.in-progress{
+
+    background:
+        var(--warning-soft);
+
+    color:
+        var(--warning);
+}
+
+
+/* COMPLETED */
+
+.status-badge.completed{
+
+    background:
+        var(--success-soft);
+
+    color:
+        var(--success);
+}
+
+
+/* CLOSED */
+
+.status-badge.closed{
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state{
+
+    height: 180px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+
+.empty-state strong,
+.empty-state span{
+
+    display: block;
+}
+
+
+.empty-state strong{
+
+    color: var(--text);
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-size: 14px;
+
+    margin-top: 8px;
+}
+
+
+.empty-state span{
+
+    margin-top: 5px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EMPTY ICON
+   ========================================================= */
+
+.empty-icon{
+
+    width: 42px;
+    height: 42px;
+
+    margin:
+        0
+        auto;
+
+    border-radius: 10px;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.empty-icon svg{
+
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+
+    margin-top: 40px;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 850px){
+
+    .main{
+
+        padding:
+            28px
+            24px
+            24px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px){
+
+    .sidebar{
+
+        width: 68px;
+
+        padding:
+            18px
+            0;
+    }
+
+
+    .sidebar-logo{
+
+        margin-bottom: 25px;
+    }
+
+
+    .sidebar-logo img{
+
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .sidebar-nav li a,
+    .sidebar-bottom a{
+
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .sidebar-nav li a svg,
+    .sidebar-bottom a svg{
+
+        width: 18px;
+        height: 18px;
+    }
+
+
+    .main{
+
+        padding:
+            20px
+            16px;
+    }
+
+
+    .topbar{
+
+        align-items: center;
+    }
+
+
+    .topbar h1{
+
+        font-size: 19px;
+    }
+
+
+    .account-name,
+    .account-role{
+
+        display: none;
+    }
+
+
+    .page-heading h2{
+
+        font-size: 23px;
+    }
+
+
+    .page-heading{
+
+        margin-top: 14px;
+    }
+
+
+    .results-card{
+
+        border-radius: 12px;
+    }
+
+
+    table{
+
+        min-width: 850px;
+    }
+
+
+    .description-cell{
+
+        max-width: 250px;
+    }
+
+
+    .footer{
+
+        margin-top: 30px;
+    }
+
+}

@@ -1,0 +1,976 @@
+/* =========================================================
+   LegalAid — Find a Lawyer
+   Client Folder Version
+   Matches reports.css design
+   ========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root{
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --success: #16845B;
+    --success-soft: #E8F7F0;
+
+    --danger: #D94B5B;
+    --danger-soft: #FDECEE;
+
+    --warning: #B7791F;
+    --warning-soft: #FFF5DD;
+
+    --radius: 14px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    box-sizing: border-box;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+body{
+    margin: 0;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+}
+
+
+h1,
+h2,
+h3{
+    margin: 0;
+
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+button,
+input,
+select,
+textarea{
+    font: inherit;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app{
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar{
+    width: 84px;
+
+    flex-shrink: 0;
+
+    background-color: var(--sidebar);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO
+   ========================================================= */
+
+.sidebar-logo{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 36px;
+}
+
+
+.sidebar-logo img{
+    width: 40px;
+    height: 40px;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.sidebar-nav{
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex-grow: 1;
+
+    width: 100%;
+}
+
+
+.sidebar-nav li{
+    width: 100%;
+}
+
+
+.sidebar-nav li a{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+.sidebar-nav li a svg{
+    width: 20px;
+    height: 20px;
+}
+
+
+.sidebar-nav li a:hover{
+    background-color: rgba(255,255,255,0.08);
+
+    color: var(--sidebar-icon-active);
+
+    transform: translateY(-1px);
+}
+
+
+.sidebar-nav li.active a{
+    background-color: var(--accent);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom{
+    width: 100%;
+}
+
+
+.sidebar-bottom a{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+.sidebar-bottom a svg{
+    width: 20px;
+    height: 20px;
+}
+
+
+.sidebar-bottom a:hover{
+    background-color: rgba(255,255,255,0.08);
+
+    color: var(--sidebar-icon-active);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main{
+    flex-grow: 1;
+
+    width: calc(100% - 84px);
+
+    padding: 32px 40px 24px;
+
+    max-width: 1250px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar{
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+
+.topbar h1{
+    font-size: 22px;
+
+    color: var(--text);
+}
+
+
+.subtitle{
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
+.account{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.account-name{
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+.account-role{
+    font-size: 12px;
+
+    color: var(--muted);
+
+    background: var(--accent-soft);
+
+    padding: 3px 10px;
+
+    border-radius: 999px;
+}
+
+
+.avatar{
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    color: #FFFFFF;
+
+    font-family: 'Sora', sans-serif;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.page-heading{
+    margin: 18px 0 24px;
+}
+
+
+.page-heading h2{
+    font-size: 26px;
+}
+
+
+.page-heading p{
+    margin: 6px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+
+.search-bar{
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 240px;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 16px;
+}
+
+
+/* =========================================================
+   SEARCH FIELD
+   ========================================================= */
+
+.search-field{
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.search-icon{
+    position: absolute;
+
+    left: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 19px;
+    height: 19px;
+
+    color: var(--muted);
+
+    pointer-events: none;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.search-icon svg{
+    width: 19px;
+    height: 19px;
+}
+
+
+.search-field input{
+    width: 100%;
+
+    height: 44px;
+
+    padding: 11px 12px 11px 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #FAFBFE;
+
+    color: var(--text);
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+
+.search-field input::placeholder{
+    color: #A4A8B8;
+}
+
+
+.search-field input:focus{
+    background: #FFFFFF;
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 87, 242, 0.10);
+}
+
+
+/* =========================================================
+   SPECIALIZATION SELECT
+   ========================================================= */
+
+.search-bar > select{
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background-color: #FAFBFE;
+
+    color: var(--text);
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+
+.search-bar > select:focus{
+    background-color: #FFFFFF;
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 87, 242, 0.10);
+}
+
+
+/* =========================================================
+   RESULTS CARD
+   ========================================================= */
+
+.results-card{
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.table-wrapper{
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+table{
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+thead{
+    background: #FAFBFE;
+}
+
+
+th{
+    padding: 14px 16px;
+
+    text-align: left;
+
+    font-family: 'Sora', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.03em;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   TABLE CELLS
+   ========================================================= */
+
+td{
+    padding: 14px 16px;
+
+    font-size: 13px;
+
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
+
+    vertical-align: middle;
+}
+
+
+tbody tr{
+    transition:
+        background-color 0.15s ease;
+}
+
+
+tbody tr:hover{
+    background-color: #FAFBFE;
+}
+
+
+tbody tr:last-child td{
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PERSON CELL
+   ========================================================= */
+
+.person-cell{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PERSON AVATAR
+   ========================================================= */
+
+.person-avatar{
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Sora', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SPECIALIZATION TAG
+   ========================================================= */
+
+.tag{
+    display: inline-flex;
+
+    align-items: center;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    border-radius: 999px;
+
+    padding: 5px 10px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+td:nth-child(3){
+    white-space: nowrap;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CHAMBER
+   ========================================================= */
+
+td:nth-child(4){
+    min-width: 150px;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   CONSULTATION FEE
+   ========================================================= */
+
+td:nth-child(5){
+    white-space: nowrap;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ACTION CELL
+   ========================================================= */
+
+.action-cell{
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.button{
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.button-small{
+    padding: 9px 13px;
+}
+
+
+.button:hover{
+    background: #3049D9;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(59, 87, 242, 0.20);
+}
+
+
+.button:active{
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state{
+    height: 180px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+    margin-top: 40px;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.table-wrapper::-webkit-scrollbar{
+    height: 7px;
+}
+
+
+.table-wrapper::-webkit-scrollbar-track{
+    background: #F4F6FC;
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb{
+    background: #C9CEE0;
+
+    border-radius: 999px;
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb:hover{
+    background: #AEB5CE;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px){
+
+    .main{
+        padding: 28px 24px 24px;
+    }
+
+
+    .search-bar{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px){
+
+    .sidebar{
+        width: 68px;
+
+        padding: 18px 0;
+    }
+
+
+    .sidebar-logo{
+        margin-bottom: 25px;
+    }
+
+
+    .sidebar-logo img{
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .sidebar-nav li a,
+    .sidebar-bottom a{
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .sidebar-nav li a svg,
+    .sidebar-bottom a svg{
+        width: 18px;
+        height: 18px;
+    }
+
+
+    .main{
+        width: calc(100% - 68px);
+
+        padding: 20px 16px;
+    }
+
+
+    .topbar{
+        align-items: center;
+    }
+
+
+    .topbar h1{
+        font-size: 19px;
+    }
+
+
+    .account-name,
+    .account-role{
+        display: none;
+    }
+
+
+    .page-heading{
+        margin-top: 12px;
+    }
+
+
+    .page-heading h2{
+        font-size: 23px;
+    }
+
+
+    .search-bar{
+        padding: 12px;
+
+        gap: 10px;
+    }
+
+
+    .results-card{
+        border-radius: 12px;
+    }
+
+
+    /*
+       Keep the table horizontally scrollable
+       on small screens instead of breaking columns.
+    */
+
+    table{
+        min-width: 900px;
+    }
+
+
+    .footer{
+        margin-top: 30px;
+    }
+
+}

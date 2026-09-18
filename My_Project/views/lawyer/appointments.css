@@ -1,0 +1,833 @@
+/* =========================================================
+   LEGALAID — LAWYER APPOINTMENTS
+   ========================================================= */
+
+:root{
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --success: #16845B;
+    --success-soft: #E7F7F0;
+
+    --danger: #D64545;
+    --danger-soft: #FDECEC;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --radius: 14px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+
+    font-family:
+        'Inter',
+        Arial,
+        sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+}
+
+
+h1,
+h2{
+    font-family:
+        'Sora',
+        'Inter',
+        Arial,
+        sans-serif;
+}
+
+
+h1{
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+h2{
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+a{
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+svg{
+    display: block;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app{
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar{
+    width: 84px;
+
+    flex-shrink: 0;
+
+    background-color: var(--sidebar);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+
+.sidebar-logo{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 36px;
+}
+
+
+.sidebar-logo img{
+    width: 40px;
+
+    height: 40px;
+
+    display: block;
+}
+
+
+.sidebar-nav{
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex-grow: 1;
+
+    width: 100%;
+}
+
+
+.sidebar-nav li a{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-nav li a svg{
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-nav li a:hover{
+    background-color:
+        rgba(255,255,255,0.08);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+.sidebar-nav li.active a{
+    background-color:
+        var(--accent);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom{
+    width: 100%;
+}
+
+
+.sidebar-bottom a{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-bottom a svg{
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-bottom a:hover{
+    background-color:
+        rgba(255,255,255,0.08);
+
+    color:
+        var(--sidebar-icon-active);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main{
+    flex-grow: 1;
+
+    padding: 32px 40px 24px;
+
+    max-width: 1200px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar{
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+    gap: 30px;
+}
+
+
+.back-link{
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+
+    margin-bottom: 10px;
+}
+
+
+.back-link svg{
+    width: 15px;
+
+    height: 15px;
+}
+
+
+.back-link:hover{
+    color: var(--accent);
+}
+
+
+.subtitle{
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
+.account{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.account-info{
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+}
+
+
+.account-name{
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+.account-role{
+    font-size: 11px;
+
+    color: var(--muted);
+
+    font-weight: 500;
+}
+
+
+.avatar{
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.page-heading{
+    margin-bottom: 18px;
+}
+
+
+.page-heading p{
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.message{
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 15px;
+
+    margin-bottom: 18px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border: 1px solid;
+}
+
+
+.message svg{
+    width: 17px;
+
+    height: 17px;
+}
+
+
+.message.success{
+    color: var(--success);
+
+    background-color:
+        var(--success-soft);
+
+    border-color:
+        #C7EBDD;
+}
+
+
+.message.danger{
+    color: var(--danger);
+
+    background-color:
+        var(--danger-soft);
+
+    border-color:
+        #F3CCCC;
+}
+
+
+/* =========================================================
+   RESULTS CARD
+   ========================================================= */
+
+.results-card{
+    background-color: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+}
+
+
+.table-wrapper{
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+table{
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+
+thead th{
+    text-align: left;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+
+    color: var(--muted);
+
+    padding: 14px 18px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    white-space: nowrap;
+}
+
+
+tbody td{
+    padding: 14px 18px;
+
+    font-size: 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    vertical-align: middle;
+}
+
+
+tbody tr:last-child td{
+    border-bottom: none;
+}
+
+
+tbody tr:hover{
+    background-color: var(--bg);
+}
+
+
+/* =========================================================
+   PERSON
+   ========================================================= */
+
+.person-cell{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.person-avatar{
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    background-color:
+        var(--accent-soft);
+
+    color: var(--accent);
+
+    font-family:
+        'Sora',
+        sans-serif;
+
+    font-weight: 600;
+
+    font-size: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   REASON
+   ========================================================= */
+
+.reason-cell{
+    max-width: 260px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-tag{
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.status-tag.pending{
+    background-color: #FFF5D9;
+
+    color: #9A6B00;
+}
+
+
+.status-tag.accepted{
+    background-color: var(--success-soft);
+
+    color: var(--success);
+}
+
+
+.status-tag.rejected{
+    background-color: var(--danger-soft);
+
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.action-cell{
+    min-width: 155px;
+}
+
+
+.action-stack{
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+
+.button{
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    padding: 7px 11px;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.button svg{
+    width: 14px;
+
+    height: 14px;
+}
+
+
+/* ACCEPT */
+
+.button-accept{
+    background-color: var(--accent);
+
+    color: white;
+
+    border: 1px solid var(--accent);
+}
+
+
+.button-accept:hover{
+    background-color: #2945D8;
+
+    border-color: #2945D8;
+}
+
+
+/* REJECT */
+
+.button-reject{
+    background-color: white;
+
+    color: var(--danger);
+
+    border: 1px solid #E5BABA;
+}
+
+
+.button-reject:hover{
+    background-color: var(--danger-soft);
+
+    border-color: #DFA4A4;
+}
+
+
+/* NO ACTION */
+
+.no-action{
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state{
+    text-align: center;
+
+    color: var(--muted);
+
+    padding: 42px 18px !important;
+
+    font-size: 13px !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px){
+
+    .main{
+        padding:
+            26px 25px 22px;
+    }
+
+    .topbar{
+        flex-direction: column;
+    }
+
+    .account{
+        align-self: flex-end;
+    }
+}
+
+
+@media (max-width: 640px){
+
+    .sidebar{
+        width: 64px;
+
+        padding-top: 18px;
+    }
+
+    .sidebar-logo img{
+        width: 34px;
+
+        height: 34px;
+    }
+
+    .sidebar-nav li a,
+    .sidebar-bottom a{
+        width: 40px;
+
+        height: 40px;
+    }
+
+    .main{
+        padding:
+            20px 15px;
+    }
+
+    .topbar{
+        margin-bottom: 20px;
+    }
+
+    .account{
+        align-self: flex-start;
+    }
+
+    .account-info{
+        align-items: flex-start;
+    }
+
+    .page-heading{
+        margin-bottom: 15px;
+    }
+
+    table{
+        min-width: 850px;
+    }
+}

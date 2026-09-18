@@ -1,0 +1,654 @@
+
+/* ===== Design tokens (shared across the whole site) ===== */
+
+:root{
+    --sidebar: #12173B;
+    --sidebar-icon: #7C82AA;
+    --sidebar-icon-active: #FFFFFF;
+
+    --accent: #3B57F2;
+    --accent-soft: #EAEDFF;
+
+    --bg: #F4F6FC;
+    --card: #FFFFFF;
+
+    --text: #1B1F3B;
+    --muted: #8A90A8;
+
+    --border: #E7EAF5;
+
+    --success: #1F9254;
+    --success-soft: #EAF7EF;
+
+    --error: #E4483F;
+    --error-soft: #FDEDEC;
+
+    --radius: 14px;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+}
+
+
+h1{
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+h2{
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+
+    margin: 0;
+
+    font-size: 20px;
+}
+
+
+a{
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+/* ===== App ===== */
+
+.app{
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* ===== Sidebar ===== */
+
+.sidebar{
+    width: 84px;
+
+    flex-shrink: 0;
+
+    background-color: var(--sidebar);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+
+.sidebar-logo{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 36px;
+}
+
+
+.sidebar-logo img{
+    width: 40px;
+
+    height: 40px;
+
+    display: block;
+}
+
+
+.sidebar-nav{
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex-grow: 1;
+
+    width: 100%;
+}
+
+
+.sidebar-nav li a{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-nav li a svg{
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-nav li a:hover{
+    background-color: rgba(255,255,255,0.08);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+.sidebar-nav li.active a{
+    background-color: var(--accent);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+.sidebar-bottom a{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 10px;
+
+    color: var(--sidebar-icon);
+}
+
+
+.sidebar-bottom a svg{
+    width: 20px;
+
+    height: 20px;
+}
+
+
+.sidebar-bottom a:hover{
+    background-color: rgba(255,255,255,0.08);
+
+    color: var(--sidebar-icon-active);
+}
+
+
+/* ===== Main ===== */
+
+.main{
+    flex-grow: 1;
+
+    padding: 32px 40px 24px;
+
+    max-width: 1000px;
+}
+
+
+/* ===== Topbar ===== */
+
+.topbar{
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+
+.subtitle{
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+.account{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.account-info{
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+}
+
+
+.account-name{
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+
+.account-role{
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.avatar{
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family: 'Sora', sans-serif;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+/* ===== Page Heading ===== */
+
+.page-heading{
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin: 28px 0 18px;
+}
+
+
+.page-heading p{
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* ===== Back Link ===== */
+
+.back-link{
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+
+    margin-bottom: 18px;
+}
+
+
+.back-link svg{
+    width: 15px;
+
+    height: 15px;
+}
+
+
+.back-link:hover{
+    color: var(--accent);
+}
+
+
+/* ===== Details Card ===== */
+
+.details-card{
+    background-color: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+}
+
+
+/* ===== Details Header ===== */
+
+.details-header{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.lawyer-info{
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.lawyer-avatar{
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-family: 'Sora', sans-serif;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.lawyer-name{
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.lawyer-specialization{
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ===== Status ===== */
+
+.status{
+    display: inline-block;
+
+    background-color: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    white-space: nowrap;
+}
+
+
+/* ===== Details Grid ===== */
+
+.details-list{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.detail-item{
+    padding: 16px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.detail-item:nth-child(odd){
+    border-right: 1px solid var(--border);
+}
+
+
+.detail-label{
+    color: var(--muted);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+
+    margin-bottom: 6px;
+}
+
+
+.detail-value{
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+/* ===== Reason ===== */
+
+.reason-section{
+    padding: 18px 20px;
+}
+
+
+.reason-label{
+    color: var(--muted);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+
+    margin-bottom: 7px;
+}
+
+
+.reason{
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    color: var(--text);
+}
+
+
+/* ===== Buttons ===== */
+
+.actions{
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 16px 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.button{
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 6px 14px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    font-weight: 600;
+
+    font-size: 12px;
+
+    font-family: 'Inter', Arial, sans-serif;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.button-ghost{
+    background-color: transparent;
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+}
+
+
+.button-ghost:hover{
+    border-color: var(--accent);
+
+    color: var(--accent);
+}
+
+
+.button-small{
+    background-color: var(--accent-soft);
+
+    color: var(--accent);
+}
+
+
+.button-small:hover{
+    background-color: var(--accent);
+
+    color: white;
+}
+
+
+/* ===== Footer ===== */
+
+.footer{
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px){
+
+    .main{
+        padding: 20px;
+    }
+
+
+    .account-info{
+        display: none;
+    }
+
+
+    .details-header{
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    .details-list{
+        grid-template-columns: 1fr;
+    }
+
+
+    .detail-item:nth-child(odd){
+        border-right: none;
+    }
+
+
+    .actions{
+        flex-wrap: wrap;
+    }
+
+}
